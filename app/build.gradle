@@ -20,7 +20,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -75,7 +75,7 @@ publish {
     repoName = 'maven' //Bintray上创建的仓库名,如果你创建的是maven,则可以干掉这一行,否则需要指定仓库名
     groupId = 'cn.chitanda.compose' //依赖名implementation 'x:y:z'中的x
     artifactId = 'network-image' //依赖名implementation 'x:y:z'中的y
-    publishVersion = '0.0.1' //依赖名implementation 'x:y:z'中的z
+    publishVersion = '0.0.2' //依赖名implementation 'x:y:z'中的z
     desc = 'A Jetpack Compose library that provides Compose support for Glide.' //对这个库的描述
     website = 'https://github.com/CJChen98/NetworkImage-Compose' //VCS地址,填写该项目的Github地址就好
 }

@@ -13,7 +13,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 
@@ -23,7 +26,7 @@ import androidx.compose.ui.unit.IntSize
  * @Description:
  */
 
-val LocalImageLoader = staticCompositionLocalOf  <ImageLoader> {
+val LocalImageLoader = staticCompositionLocalOf<ImageLoader> {
     noLocalProvidedFor("LocalContext")
 }
 
@@ -33,6 +36,10 @@ fun NetworkImage(
     url: String,
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
+    alignment: Alignment = Alignment.Center,
+    alpha: Float = DefaultAlpha,
+    colorFilter: ColorFilter? = null,
+    contentScale: ContentScale = ContentScale.Fit,
     onLoading: @Composable () -> Unit = {},
     onFailure: @Composable (Throwable) -> Unit = {},
     onSuccess: @Composable (ImageBitmap) -> Unit = {
@@ -40,7 +47,10 @@ fun NetworkImage(
             bitmap = it,
             contentDescription = contentDescription,
             modifier = Modifier.fillMaxSize(),
-            alignment = Alignment.Center
+            alignment = alignment,
+            contentScale = contentScale,
+            alpha = alpha,
+            colorFilter = colorFilter
         )
     }
 ) {
