@@ -2,13 +2,13 @@
 
 A  Jetpack Compose library that provides Compose support for Glide.
 
-## Setup
+## Usage
 
 1. Add the dependency
 
 ```groovy
  dependencies {
-    implementation 'com.github.CJChen98:NetworkImage-Compose:0.0.1'
+    implementation 'cn.chitanda.compose:network-image:0.0.1'
  }
 ```
 
@@ -21,10 +21,6 @@ A  Jetpack Compose library that provides Compose support for Glide.
  	}
  }
 ```
-
-
-
-## Usage
 
 ```kotlin
 NetworkImage(
