@@ -1,34 +1,23 @@
-# NetworkImage-Compose [![](https://jitpack.io/v/CJChen98/NetworkImage-Compose.svg)](https://jitpack.io/#CJChen98/NetworkImage-Compose)
+# NetworkImage-Compose
 
 A  Jetpack Compose library that provides Compose support for Glide.
 
 ## Setup
 
-1. Add it in your root `build.gradle` at the end of repositories:
+1. Add the dependency
 
 ```groovy
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+ dependencies {
+    implementation 'com.github.CJChen98:NetworkImage-Compose:0.0.1'
+ }
 ```
 
-2. Add the dependency
-
-```groovy
-dependencies {
-	        implementation 'com.github.CJChen98:NetworkImage-Compose:0.0.3'
-	}
-```
-
-3. Provide a Glide `RequestManager` instance to your root Compose tree:
+2. Provide a Glide `RequestManager` instance to your root Compose tree:
 
 ```kotlin
  setContent { 
      ProvideGlideLoader {
-    	SampleScreen()
+    	Home()
  	}
  }
 ```
