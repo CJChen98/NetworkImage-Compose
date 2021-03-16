@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
+import cn.chitanda.compose.photoview.PhotoView
 
 /**
  * @Author:       Chen
@@ -42,16 +43,29 @@ fun NetworkImage(
     contentScale: ContentScale = ContentScale.Fit,
     onLoading: @Composable () -> Unit = {},
     onFailure: @Composable (Throwable) -> Unit = {},
+    enableGesture: Boolean = false,
     onSuccess: @Composable (ImageBitmap) -> Unit = {
-        Image(
-            bitmap = it,
-            contentDescription = contentDescription,
-            modifier = Modifier.fillMaxSize(),
-            alignment = alignment,
-            contentScale = contentScale,
-            alpha = alpha,
-            colorFilter = colorFilter
-        )
+        if (enableGesture) {
+            PhotoView(
+                bitmap = it,
+                contentDescription = contentDescription,
+                modifier = Modifier.fillMaxSize(),
+                alignment = alignment,
+                contentScale = contentScale,
+                alpha = alpha,
+                colorFilter = colorFilter
+            )
+        } else {
+            Image(
+                bitmap = it,
+                contentDescription = contentDescription,
+                modifier = Modifier.fillMaxSize(),
+                alignment = alignment,
+                contentScale = contentScale,
+                alpha = alpha,
+                colorFilter = colorFilter
+            )
+        }
     }
 ) {
     NetworkImage(url = url, modifier, content = { state ->

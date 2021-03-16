@@ -8,7 +8,7 @@ A  Jetpack Compose library that provides Compose support for Glide.
 
 ```groovy
  dependencies {
-    implementation 'cn.chitanda.compose:network-image:0.0.2'
+    implementation 'cn.chitanda.compose:network-image:0.0.3'
  }
 ```
 
