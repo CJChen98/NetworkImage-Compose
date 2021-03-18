@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,6 +44,7 @@ fun NetworkImage(
     onLoading: @Composable () -> Unit = {},
     onFailure: @Composable (Throwable) -> Unit = {},
     enableGesture: Boolean = false,
+    onGetBitMap: suspend (ImageBitmap) -> Unit = {},
     onSuccess: @Composable (ImageBitmap) -> Unit = {
         if (enableGesture) {
             PhotoView(
@@ -64,6 +66,9 @@ fun NetworkImage(
                 alpha = alpha,
                 colorFilter = colorFilter
             )
+        }
+        LaunchedEffect(key1 = it) {
+            onGetBitMap.invoke(it)
         }
     }
 ) {
