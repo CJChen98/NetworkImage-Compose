@@ -2,7 +2,6 @@ package cn.chitanda.compose.networkimage.core
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -49,7 +48,7 @@ fun NetworkImage(
             PhotoView(
                 bitmap = it,
                 contentDescription = contentDescription,
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier,
                 alignment = alignment,
                 contentScale = contentScale,
                 alpha = alpha,
@@ -59,7 +58,7 @@ fun NetworkImage(
             Image(
                 bitmap = it,
                 contentDescription = contentDescription,
-                modifier = Modifier.fillMaxSize(),
+                modifier = modifier,
                 alignment = alignment,
                 contentScale = contentScale,
                 alpha = alpha,
