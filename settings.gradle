@@ -7,4 +7,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "NetworkImage"
-include ':app'
+include(":app")

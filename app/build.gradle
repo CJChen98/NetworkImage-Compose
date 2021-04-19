@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'com.github.panpf.bintray-publish'
 }
-
+ext {
+    PUBLISH_ARTIFACT_ID = "NetworkImage-Compose"
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -50,23 +51,4 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 }
 
-//防止中文注释出现错误
-allprojects {
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-        options.addStringOption('encoding', 'UTF-8')
-    }
-}
-
-
-
-//下面这些配置换成你自己的即可
-publish {
-    userOrg = 'cjchen98'  //Bintray用户名
-    repoName = 'maven' //Bintray上创建的仓库名,如果你创建的是maven,则可以干掉这一行,否则需要指定仓库名
-    groupId = 'cn.chitanda.compose' //依赖名implementation 'x:y:z'中的x
-    artifactId = 'network-image' //依赖名implementation 'x:y:z'中的y
-    publishVersion = '0.1.0' //依赖名implementation 'x:y:z'中的z
-    desc = 'A Jetpack Compose library that provides Compose support for Glide.' //对这个库的描述
-    website = 'https://github.com/CJChen98/NetworkImage-Compose' //VCS地址,填写该项目的Github地址就好
-}
+apply from: '../publish.gradle'
