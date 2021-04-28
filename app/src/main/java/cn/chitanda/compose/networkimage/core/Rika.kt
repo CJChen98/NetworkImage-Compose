@@ -101,7 +101,7 @@ fun NetworkImage(
         LoadImage(imageConfig = ImageConfig(
             id = ImageId.Path(url),
             size = size
-        ), onLoaded = {
+        ), onSuccess = {
             state = RikaState.Success(it)
         }, onFailure = { RikaState.Failure(it) })
     }
@@ -117,12 +117,12 @@ fun NetworkImage(
 @Composable
 fun LoadImage(
     imageConfig: ImageConfig<*>,
-    onLoaded: (ImageBitmap) -> Unit,
+    onSuccess: (ImageBitmap) -> Unit,
     onFailure: (Throwable) -> Unit
 ) {
     val imageLoader = LocalImageLoader.current
     DisposableEffect(key1 = imageLoader, effect = {
-        val cancelable = imageLoader.getImage(imageConfig, onLoaded, onFailure)
+        val cancelable = imageLoader.getImage(imageConfig, onSuccess, onFailure)
         onDispose {
             cancelable.cancel()
         }
